@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -26,11 +25,9 @@ function App() {
 
 export default App;
 
-export default function App() {
-  return (
-    <div className="App">
-      <h1>Weather App</h1>
-      <Weather />
-    </div>
-  );
-}
+return (
+  <div className="App">
+    <h1>Weather App</h1>
+    <Weather />
+  </div>
+);
