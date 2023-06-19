@@ -7,12 +7,6 @@ function App() {
       <h1>Weather App</h1>
       <Weather />
       <br />
-      <footer>
-        <a href="https://github.com/rosiekg123?tab=repositories">
-          Open Source Code
-        </a>{" "}
-        by Rosie
-      </footer>
     </div>
   );
 }

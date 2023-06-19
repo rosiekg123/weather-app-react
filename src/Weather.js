@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Weather.css";
 
 export default function Weather() {
   const [city, setCity] = useState(" ");
@@ -35,6 +36,7 @@ export default function Weather() {
           type="search"
           placeholder="Seach for a City!"
           onChange={updateCity}
+          autoFocus="on"
         />
         <button type="submit"> Search </button>
       </form>
@@ -43,17 +45,33 @@ export default function Weather() {
 
   if (loaded) {
     return (
-      <div>
+      <div className="Weather">
         {form}
+        <br />
+        <h1> London</h1>
         <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C </li>
+          <li> Monday 16:00 </li>
           <li> Description: {weather.description}</li>
-          <li> Wind: {Math.round(weather.wind)} km/h </li>
-          <li>Humidity: {weather.humidity}% </li>
-          <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
         </ul>
+        <div className="row">
+          <div className="col-6">
+            <img src={weather.icon} alt={weather.description} />
+
+            <span className="temperature">
+              {" "}
+              {Math.round(weather.temperature)}{" "}
+            </span>
+            <span className="units">°C </span>
+          </div>
+          <div className="col-6">
+            <ul>
+              <li> Precipitation: 10% </li>
+              <li> Wind: {Math.round(weather.wind)} km/h </li>
+              <li>Humidity: {weather.humidity}% </li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   } else {
