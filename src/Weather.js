@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Weather(props) {
   const [city, setCity] = useState(" ");
@@ -16,8 +17,7 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -61,8 +61,10 @@ export default function Weather(props) {
         </ul>
         <div className="row">
           <div className="col-6">
-            <img src={weather.icon} alt={weather.description} />
-
+            <div className="float-left">
+              {" "}
+              <WeatherIcon code={weather.icon} />
+            </div>
             <span className="temperature">
               {" "}
               {Math.round(weather.temperature)}{" "}
