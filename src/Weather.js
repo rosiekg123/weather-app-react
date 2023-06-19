@@ -29,7 +29,7 @@ export default function Weather() {
   }
 
   let form = (
-    <div ClassName="CitySearch">
+    <div className="CitySearch">
       <form className="SearchEngine" onSubmit={handleSubmit}>
         <input
           type="search"
