@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 import WeatherIcon from "./WeatherIcon";
-
-export default function Weather(props) {
+export default function Weather() {
   const [city, setCity] = useState(" ");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState(null);
@@ -62,21 +62,16 @@ export default function Weather(props) {
         <div className="row">
           <div className="col-6">
             <div className="float-left">
-              {" "}
+              <WeatherTemperature celsius={weather.temperature} />
               <WeatherIcon code={weather.icon} />
+              <div className="col-6">
+                <ul>
+                  <li> Wind: {Math.round(weather.wind)} km/h </li>
+                  <li>Humidity: {weather.humidity}% </li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
-            <span className="temperature">
-              {" "}
-              {Math.round(weather.temperature)}{" "}
-            </span>
-            <span className="units">°C </span>
-          </div>
-          <div className="col-6">
-            <ul>
-              <li> Wind: {Math.round(weather.wind)} km/h </li>
-              <li>Humidity: {weather.humidity}% </li>
-              <li></li>
-            </ul>
           </div>
         </div>
       </div>
