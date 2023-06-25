@@ -64,14 +64,15 @@ export default function Weather() {
             <div className="float-left">
               <WeatherTemperature celsius={weather.temperature} />
               <WeatherIcon code={weather.icon} />
-              <div className="col-6">
-                <ul>
-                  <li> Wind: {Math.round(weather.wind)} km/h </li>
-                  <li>Humidity: {weather.humidity}% </li>
-                  <li></li>
-                </ul>
-              </div>
             </div>
+          </div>
+
+          <div className="col-6">
+            <ul>
+              <li> Wind: {Math.round(weather.wind)} km/h </li>
+              <li>Humidity: {weather.humidity}% </li>
+              <li></li>
+            </ul>
           </div>
         </div>
       </div>
