@@ -62,8 +62,9 @@ export default function Weather() {
         <div className="row">
           <div className="col-6">
             <div className="float-left">
-              <WeatherTemperature celsius={weather.temperature} />
+              <br />
               <WeatherIcon code={weather.icon} />
+              <WeatherTemperature celsius={weather.temperature} />
             </div>
           </div>
 
