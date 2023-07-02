@@ -52,31 +52,45 @@ export default function Weather() {
   if (loaded) {
     return (
       <div className="Weather">
+        <div className="row">
+          <div className="col-6">
+            <h1>Weather App</h1>
+          </div>
+          <div className="col-6">
+            <div className="updated">
+              <div> Last Search performed: </div>
+              <ul>
+                <li>
+                  {" "}
+                  <FormattedDate date={weather.date} />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         {form}
         <br />
-        <h1> {city}</h1>
+        <h1 className="citySearch"> {city}</h1>
         <ul>
-          <li>
-            {" "}
-            <FormattedDate date={weather.date} />
-          </li>
           <li> {weather.description}</li>
         </ul>
         <div className="row">
-          <div className="col-4">
-            <div className="float-left">
+          <div className="col-6">
+            <div className="iconTemp">
               <br />
               <WeatherIcon code={weather.icon} size={90} color={"#6e6687"} />
               <WeatherTemperature celsius={weather.temperature} />
             </div>
           </div>
 
-          <div className="col-4">
-            <ul>
-              <li> Wind: {Math.round(weather.wind)} km/h </li>
-              <li>Humidity: {weather.humidity}% </li>
-              <li></li>
-            </ul>
+          <div className="col-6">
+            <div className="extraDetail">
+              <ul>
+                <li> Wind: {Math.round(weather.wind)} km/h </li>
+                <li>Humidity: {weather.humidity}% </li>
+                <li></li>
+              </ul>
+            </div>
           </div>
 
           <div className="col-4">
@@ -93,6 +107,11 @@ export default function Weather() {
       </div>
     );
   } else {
-    return form;
+    return (
+      <div className="Weather">
+        <h1>Weather App</h1>
+        {form}
+      </div>
+    );
   }
 }
