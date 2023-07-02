@@ -39,3 +39,11 @@ button {
 .units {
   font-size: 24px;
 }
+
+.forecast {
+  padding-left: 50px;
+}
+
+div .col-3 {
+  padding: 0 12px 0 80px;
+}

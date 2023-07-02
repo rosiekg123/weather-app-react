@@ -4,6 +4,8 @@ import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
 import WeatherIcon from "./WeatherIcon";
+import WeatherForecast from "./WeatherForecast";
+
 export default function Weather() {
   const [city, setCity] = useState(" ");
   const [loaded, setLoaded] = useState(false);
@@ -12,6 +14,7 @@ export default function Weather() {
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
@@ -23,7 +26,7 @@ export default function Weather() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = `643c0c4907c570ba3890edc515e6df98`;
+    let apiKey = `93d43dfe3b4a950e5b187e5dc313705e`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
@@ -60,21 +63,24 @@ export default function Weather() {
           <li> {weather.description}</li>
         </ul>
         <div className="row">
-          <div className="col-6">
+          <div className="col-3">
             <div className="float-left">
               <br />
-              <WeatherIcon code={weather.icon} />
+              <WeatherIcon code={weather.icon} size={90} />
               <WeatherTemperature celsius={weather.temperature} />
             </div>
           </div>
 
-          <div className="col-6">
+          <div className="col-3">
             <ul>
               <li> Wind: {Math.round(weather.wind)} km/h </li>
               <li>Humidity: {weather.humidity}% </li>
               <li></li>
             </ul>
           </div>
+        </div>
+        <div className="forecast">
+          <WeatherForecast coordinates={weather.coordinates} />
         </div>
       </div>
     );
