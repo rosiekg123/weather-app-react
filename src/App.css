@@ -13,4 +13,5 @@ body {
 .App {
   border: 5px solid #6e6687;
   margin: 20px;
+  border-radius: 20px;
 }
