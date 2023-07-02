@@ -63,7 +63,7 @@ export default function Weather() {
           <li> {weather.description}</li>
         </ul>
         <div className="row">
-          <div className="col-3">
+          <div className="col-4">
             <div className="float-left">
               <br />
               <WeatherIcon code={weather.icon} size={90} color={"#6e6687"} />
@@ -71,10 +71,18 @@ export default function Weather() {
             </div>
           </div>
 
-          <div className="col-3">
+          <div className="col-4">
             <ul>
               <li> Wind: {Math.round(weather.wind)} km/h </li>
               <li>Humidity: {weather.humidity}% </li>
+              <li></li>
+            </ul>
+          </div>
+
+          <div className="col-4">
+            <ul>
+              <li></li>
+              <li></li>
               <li></li>
             </ul>
           </div>
