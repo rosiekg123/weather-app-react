@@ -66,7 +66,7 @@ export default function Weather() {
           <div className="col-3">
             <div className="float-left">
               <br />
-              <WeatherIcon code={weather.icon} size={90} />
+              <WeatherIcon code={weather.icon} size={90} color={"#6e6687"} />
               <WeatherTemperature celsius={weather.temperature} />
             </div>
           </div>
